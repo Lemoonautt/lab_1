@@ -8,19 +8,12 @@ import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 })
 export class AppComponent implements OnInit {
 
-     constructor(public location: Location) {}
+  constructor(public location: Location) {}
 
-    ngOnInit(){
-    }
-
-    isMap(path){
-      var titlee = this.location.prepareExternalUrl(this.location.path());
-      titlee = titlee.slice( 1 );
-      if(path == titlee){
-        return false;
-      }
-      else {
-        return true;
-      }
-    }
+ngOnInit() {
+  const loader = document.getElementById('loader');
+  if (loader && loader.parentElement) {
+    loader.parentElement.removeChild(loader);
+  }
+}
 }
